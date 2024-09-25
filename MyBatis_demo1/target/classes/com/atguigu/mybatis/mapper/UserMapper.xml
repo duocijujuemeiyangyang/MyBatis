@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!--文件规范，doctype 后面跟着下面根目录标签-->
-<mapper namespace="com.atguigu.mybatis.mapper.User2Mapper"><!--命名空间对应的是mapper接口，写对应mapper的名字-->
+<mapper namespace="com.atguigu.mybatis.mapper.UserMapper"><!--命名空间对应的是mapper接口，写对应mapper的名字-->
 
 
     <insert id="insertUser">
