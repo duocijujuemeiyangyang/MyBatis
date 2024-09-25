@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?><!--版本号-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!--文件规范，doctype 后面跟着下面根目录标签-->
+<mapper namespace="com.atguigu.mybatis.mapper.User2Mapper"><!--命名空间对应的是mapper接口，写对应mapper的名字-->
+
+
+    <insert id="insertUser">
+        insert into user(username,age) values("小王",19);
+    </insert>
+    <update id="updataUser">
+        update user set age=20 where id=1;
+    </update>
+    <delete id="deleteUser">
+        delete from user where id=1;
+    </delete>
+    <select id="selectUserById" resultType="pojo.User">
+        select * from user where id=2;
+    </select>
+</mapper>

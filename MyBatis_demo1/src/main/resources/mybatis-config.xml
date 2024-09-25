@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?><!--版本号-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd"><!--约束-->
+
+<!-- MyBatis配置文件 -->
+<configuration>
+
+    <!-- 引用外部属性文件 -->
+    <properties resource="jdbc.properties"/>
+
+    <typeAliases>
+        <!--
+        typeAlias：设置某个具体的类型的别名
+        属性：
+        type：需要设置别名的类型的全类名
+        alias：设置此类型的别名，且别名不区分大小写。若不设置此属性，该类型拥有默认的别名，即类名
+        -->
+        <!--<typeAlias type="com.atguigu.mybatis.bean.User"></typeAlias>-->
+        <!--<typeAlias type="com.atguigu.mybatis.bean.User" alias="user">
+        </typeAlias>-->
+        <!--以包为单位，设置改包下所有的类型都拥有默认的别名，即类名且不区分大小写-->
+            <package name="pojo"/>
+    </typeAliases>
+
+    <!-- 定义环境配置，默认环境为development -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 事务管理器类型，使用JDBC事务管理 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!-- 数据库驱动 -->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!-- 数据库连接URL -->
+                <property name="url" value="${jdbc.url}"/>
+                <!-- 数据库用户名 -->
+                <property name="username" value="${jdbc.username}"/>
+                <!-- 数据库密码 -->
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 定义Mapper文件的位置 -->
+    <mappers>
+        <!-- 指定Mapper XML文件 -->
+        <package name="com.atguigu.mybatis.mapper"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?><!--版本号-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!--文件规范，doctype 后面跟着下面根目录标签-->
+<mapper namespace="com.atguigu.mybatis.mapper.EmpMapper"><!--命名空间对应的是mapper接口，写对应mapper的名字-->
+
+
+    <resultMap id="empResultMap" type="Emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+        <association property="dept" select="com.atguigu.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo" column="did">
+        </association>
+    </resultMap>
+
+    <select id="selectEmpById" resultMap="empResultMap">
+        select * from t_emp where eid = #{eid}
+    </select>
+
+    <select id="selectEmpAndDeptBySteptwo" resultType="EMP">
+    select * from t_emp where did = #{did}
+    </select>
+</mapper>
